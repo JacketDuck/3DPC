@@ -1,8 +1,9 @@
-package org.tdpc;
+package org.tdpc.service;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.collections.FXCollections;
+import org.tdpc.model.Config;
 
 import java.io.*;
 import java.util.ArrayList;

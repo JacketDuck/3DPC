@@ -1,4 +1,4 @@
-package org.tdpc;
+package org.tdpc.model;
 
 public class Tempo {
     public String id;

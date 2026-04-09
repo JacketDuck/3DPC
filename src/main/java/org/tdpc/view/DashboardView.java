@@ -1,8 +1,9 @@
-package org.tdpc;
+package org.tdpc.view;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import org.tdpc.factory.TabelaFactory;
 
 public class DashboardView {
 

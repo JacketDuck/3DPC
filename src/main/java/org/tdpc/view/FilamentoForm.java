@@ -1,13 +1,14 @@
-package org.tdpc;
+package org.tdpc.view;
 
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.tdpc.model.Filamento;
+import org.tdpc.service.ConfigService;
 
 public class FilamentoForm {
-
     public static void abrir(TableView<Filamento> tabela) {
 
         Stage janela = new Stage();

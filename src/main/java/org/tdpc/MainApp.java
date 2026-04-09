@@ -7,6 +7,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import org.tdpc.service.ConfigService;
+import org.tdpc.model.Filamento;
+import org.tdpc.model.Energia;
+import org.tdpc.model.Tempo;
+import org.tdpc.view.*;
+
 
 public class MainApp extends Application {
 
@@ -69,6 +75,7 @@ public class MainApp extends Application {
 
         MenuItem tempo = new MenuItem("Tempo");
         tempo.setOnAction(e -> TempoForm.abrir(DadosView.tabelaTempo));
+
 
         configMenu.getItems().addAll(filamento, energia, tempo);
 

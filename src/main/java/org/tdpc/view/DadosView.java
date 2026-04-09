@@ -1,7 +1,11 @@
-package org.tdpc;
+package org.tdpc.view;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
+import org.tdpc.factory.TabelaFactory;
+import org.tdpc.model.Energia;
+import org.tdpc.model.Filamento;
+import org.tdpc.model.Tempo;
 
 public class DadosView {
 
@@ -12,15 +16,15 @@ public class DadosView {
 
     public static TabPane criar() {
 
-        // --- Tabelas com marca d’água ---
-        StackPane filamentosPane = TabelaFactory.filamentos();
-        tabelaFilamentos = (TableView<Filamento>) filamentosPane.getChildren().get(1);
+        // --- Criação das tabelas tipadas ---
+        tabelaFilamentos = TabelaFactory.criarTabelaFilamentos();
+        StackPane filamentosPane = TabelaFactory.aplicarLogo(tabelaFilamentos);
 
-        StackPane energiaPane = TabelaFactory.energia();
-        tabelaEnergia = (TableView<Energia>) energiaPane.getChildren().get(1);
+        tabelaEnergia = TabelaFactory.criarTabelaEnergia();
+        StackPane energiaPane = TabelaFactory.aplicarLogo(tabelaEnergia);
 
-        StackPane tempoPane = TabelaFactory.tempo();
-        tabelaTempo = (TableView<Tempo>) tempoPane.getChildren().get(1);
+        tabelaTempo = TabelaFactory.criarTabelaTempo();
+        StackPane tempoPane = TabelaFactory.aplicarLogo(tabelaTempo);
 
         // --- Abas ---
         Tab filamentoTab = new Tab("Filamentos", filamentosPane);

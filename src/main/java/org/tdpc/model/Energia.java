@@ -1,4 +1,4 @@
-package org.tdpc;
+package org.tdpc.model;
 
 public class Energia {
     public String id;
