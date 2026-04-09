@@ -1,8 +1,10 @@
 package org.tdpc;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -13,7 +15,15 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) {
 
-        ConfigService.carregar();
+        ConfigService.carregar(); // carrega do JSON
+
+        Image logo = new Image(getClass().getResourceAsStream("/images/logo.png"));
+        stage.getIcons().add(logo);
+
+        // converter listas para ObservableList
+        ConfigService.config.filamentos = FXCollections.observableArrayList(ConfigService.config.filamentos);
+        ConfigService.config.energias = FXCollections.observableArrayList(ConfigService.config.energias);
+        ConfigService.config.tempos = FXCollections.observableArrayList(ConfigService.config.tempos);
 
         root = new BorderPane();
 
@@ -42,26 +52,23 @@ public class MainApp extends Application {
     }
 
     private MenuBar criarMenu() {
-
         MenuBar menuBar = new MenuBar();
 
         Menu fileMenu = new Menu("File");
-
-        MenuItem novoCalculo = new MenuItem("Novo cálculo");
-
         MenuItem sair = new MenuItem("Sair");
         sair.setOnAction(e -> System.exit(0));
+        fileMenu.getItems().add(sair);
 
         Menu configMenu = new Menu("Configurações");
 
         MenuItem filamento = new MenuItem("Filamento");
-        filamento.setOnAction(e -> FilamentoForm.abrir());
+        filamento.setOnAction(e -> FilamentoForm.abrir(DadosView.tabelaFilamentos));
 
         MenuItem energia = new MenuItem("Energia");
-        energia.setOnAction(e -> EnergiaForm.abrir());
+        energia.setOnAction(e -> EnergiaForm.abrir(DadosView.tabelaEnergia));
 
         MenuItem tempo = new MenuItem("Tempo");
-        tempo.setOnAction(e -> TempoForm.abrir());
+        tempo.setOnAction(e -> TempoForm.abrir(DadosView.tabelaTempo));
 
         configMenu.getItems().addAll(filamento, energia, tempo);
 

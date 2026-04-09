@@ -15,16 +15,46 @@
     </properties>
 
     <dependencies>
+        <!-- JavaFX base -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>26</version>
+        </dependency>
+
+        <!-- JavaFX controls -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>26</version>
         </dependency>
 
+        <!-- JavaFX graphics -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>26</version>
+        </dependency>
+
+        <!-- Gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.10.1</version>
+        </dependency>
+
+        <!-- Ikonli Core -->
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-javafx</artifactId>
+            <version>12.3.1</version>
+        </dependency>
+
+        <!-- Pacote de ícones FontAwesome -->
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-fontawesome-pack</artifactId>
+            <version>12.3.1</version>
         </dependency>
     </dependencies>
 
@@ -35,9 +65,11 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
+                    <!-- Troque pelo nome da sua classe principal -->
                     <mainClass>org.tdpc.MainApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 </project>

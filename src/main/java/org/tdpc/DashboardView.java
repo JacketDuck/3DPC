@@ -19,10 +19,14 @@ public class DashboardView {
 
         cards.getChildren().addAll(card1, card2);
 
+        // --- Tabela com logo ---
         TableView<String> tabela = new TableView<>();
         tabela.getItems().addAll("modelo1.stl", "modelo2.stl");
 
-        VBox layout = new VBox(10, cards, tabela);
+        // envolver a tabela com o logo usando TabelaFactory
+        StackPane tabelaComLogo = TabelaFactory.aplicarLogo(tabela);
+
+        VBox layout = new VBox(10, cards, tabelaComLogo);
         layout.setPadding(new Insets(10));
 
         return layout;
